@@ -101,7 +101,36 @@ public class JSONArray extends ArrayList implements List, JSONAware, JSONStreamA
 	public String toString() {
 		return toJSONString();
 	}
-
 	
+	public String str(int index) {
+		return (String) this.get(index);
+	}
+	
+	public JSONArray arr(int index) {
+		return (JSONArray) this.get(index);
+	}
+	
+	public JSONObject obj(int index) {
+		return (JSONObject) this.get(index);
+	}
+	
+	public Double dub(int index) {
+		Object o = this.get(index);
+		try {
+			return (Double) o;
+		} catch (ClassCastException e) {
+		}
 		
+		return ((Long) o).doubleValue();
+	}
+	
+	public Long num(int index) {
+		Object o = this.get(index);
+		try {
+			return (Long) o;
+		} catch (ClassCastException e) {
+		}
+		
+		return ((Double) o).longValue();
+	}
 }

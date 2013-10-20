@@ -126,4 +126,36 @@ public class JSONObject extends HashMap implements Map, JSONAware, JSONStreamAwa
 	public static String escape(String s){
 		return JSONValue.escape(s);
 	}
+	
+	public String str(String key) {
+		return (String) this.get(key);
+	}
+	
+	public JSONArray arr(String key) {
+		return (JSONArray) this.get(key);
+	}
+	
+	public JSONObject obj(String key) {
+		return (JSONObject) this.get(key);
+	}
+	
+	public Double dub(String key) {
+		Object o = this.get(key);
+		try {
+			return (Double) o;
+		} catch (ClassCastException e) {
+		}
+		
+		return ((Long) o).doubleValue();
+	}
+	
+	public Long num(String key) {
+		Object o = this.get(key);
+		try {
+			return (Long) o;
+		} catch (ClassCastException e) {
+		}
+		
+		return ((Double) o).longValue();
+	}
 }
