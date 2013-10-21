@@ -116,21 +116,21 @@ public class JSONArray extends ArrayList implements List, JSONAware, JSONStreamA
 	
 	public Double dub(int index) {
 		Object o = this.get(index);
-		try {
-			return (Double) o;
-		} catch (ClassCastException e) {
+		
+		if (o.getClass() == Long.class) {
+			return ((Long) o).doubleValue();
 		}
 		
-		return ((Long) o).doubleValue();
+		return (Double) o;
 	}
 	
 	public Long num(int index) {
 		Object o = this.get(index);
-		try {
-			return (Long) o;
-		} catch (ClassCastException e) {
+		
+		if (o.getClass() == Double.class) {
+			return ((Double) o).longValue();
 		}
 		
-		return ((Double) o).longValue();
+		return (Long) o;
 	}
 }

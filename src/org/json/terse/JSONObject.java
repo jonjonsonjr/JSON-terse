@@ -141,21 +141,21 @@ public class JSONObject extends HashMap implements Map, JSONAware, JSONStreamAwa
 	
 	public Double dub(String key) {
 		Object o = this.get(key);
-		try {
-			return (Double) o;
-		} catch (ClassCastException e) {
+		
+		if (o.getClass() == Long.class) {
+			return ((Long) o).doubleValue();
 		}
 		
-		return ((Long) o).doubleValue();
+		return (Double) o;
 	}
 	
 	public Long num(String key) {
 		Object o = this.get(key);
-		try {
-			return (Long) o;
-		} catch (ClassCastException e) {
+		
+		if (o.getClass() == Double.class) {
+			return ((Double) o).longValue();
 		}
 		
-		return ((Double) o).longValue();
+		return (Long) o;
 	}
 }
