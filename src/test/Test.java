@@ -1,6 +1,5 @@
 package test;
 
-import org.json.terse.JSONArray;
 import org.json.terse.JSONObject;
 import org.json.terse.parser.JSONParser;
 import org.json.terse.parser.ParseException;
