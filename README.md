@@ -1,10 +1,13 @@
 JSON-terse
 ==========
 
-Terse JSON parser wrapper for my own use
+Terse JSON-simple-based decoding.
 
-Basic functionality is here.
+I made this for my own use, so it's mostly terrible, but feel free to use/modify it! If there's an easier way of doing what I set out to accomplish here, please let me know. I always feel like I'm doing something wrong when I traverse any complicated JSON structure in Java.
 
+
+Example
+-------
 
 Consider the example JSON from https://dev.twitter.com/docs/api/1.1/get/statuses/mentions_timeline
 
